@@ -1,0 +1,35 @@
+#crontab-e
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+MAILTO=fairbanks
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12)
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0)
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+
+#----------------------------- Regular Operations ------------------------------
+# Run the basic frame scan every 6 hours at the top of the hour. Run 4 min
+# prior to the top of the hour so the scanner has time to boot up.
+# frame conducts main 0-360' scan, then executes frame_gnss, then executes
+# pivox_capture.  Power on and power off commands are conducted at the beginning
+# of frame, pivox_capture commands and at the end of frame_gnss (from within frame)
+# and and the end of pivox_capture
+56 2 * * * /home/fairbanks/fairbanks/scripts/scans/frame
+56 8 * * * /home/fairbanks/fairbanks/scripts/scans/frame
+56 14 * * * /home/fairbanks/fairbanks/scripts/scans/frame
+56 20 * * * /home/fairbanks/fairbanks/scripts/scans/frame
+#-------------------------------------------------------------------------------
+
+#-------------------------- File Storage Operations ----------------------------
+# Convert .rxp files to .laz and compress .las, .laz, .rxp files using gzip at 10:00 A.M.
+0 10 * * * /home/fairbanks/fairbanks/scripts/scans/compress
+# Move .rxp.gz and .laz files to AWS S3 bucket at 10:20 A.M.
+20 10 * * * /home/fairbanks/fairbanks/scripts/aws/syncaws
+# Separate log content in system logs, by month. occurs once a month.
+0 0 1 * * /home/fairbanks/fairbanks/scripts/logs/logs_split
+#-------------------------------------------------------------------------------
