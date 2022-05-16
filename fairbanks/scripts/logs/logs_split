@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# Set pathing to work from any user
+if [ ~ = "/root" ]; then
+  PATH_PREFIX=~/../home/fairbanks/fairbanks
+  MAIL_PATH_PREFIX=~/../var/mail
+else
+ # accessed via sudo perms or fairbanks user
+ PATH_PREFIX=~/fairbanks
+ MAIL_PATH_PREFIX=~/../../var/mail
+fi
+
+# generate the file prefix using YYYY_MM
+file_prefix=$(date +"%Y_%m")
+filename_root="$file_prefix""_root.log"
+filename_fairbanks="$file_prefix""_fairbanks.log"
+
+# if the directory we want to copy into does not exist, create it.
+if [ ! -d "$PATH_PREFIX""/logs" ]; then
+  mkdir "$PATH_PREFIX""/logs"
+fi
+if [ ! -d "$PATH_PREFIX""/logs/root" ]; then
+  mkdir "$PATH_PREFIX""/logs/root"
+fi
+if [ ! -d "$PATH_PREFIX""/logs/fairbanks" ]; then
+  mkdir "$PATH_PREFIX""/logs/fairbanks"
+fi
+
+if [ $USER = "root" ]; then
+  # check if a file already exists
+  if [ -e $PATH_PREFIX/logs/root/$filename_root ]; then
+    # append the existing file.
+    cat $MAIL_PATH_PREFIX/root >>$PATH_PREFIX/logs/root/$filename_root
+    echo "[SPLIT]: Root mail log appended to existing file!"
+  else
+    # copy the root log into the new split log file.
+    cp $MAIL_PATH_PREFIX/root $PATH_PREFIX/logs/root/$filename_root
+    echo "[SPLIT]: Root mail log file has been split into a new month."
+  fi
+
+  # check if a file already exists
+  if [ -e $PATH_PREFIX/logs/fairbanks/$filename_fairbanks ]; then
+    # append the existing file.
+    cat $MAIL_PATH_PREFIX/fairbanks >>$PATH_PREFIX/logs/fairbanks/$filename_fairbanks
+    echo "[SPLIT]: fairbanks mail log appended to existing file!"
+  else
+    # copy the fairbanks log into the new split log file.
+    cp $MAIL_PATH_PREFIX/fairbanks $PATH_PREFIX/logs/fairbanks/$filename_fairbanks
+    echo "[SPLIT]: fairbanks mail log file has been split into a new month."
+  fi
+
+  # write the null character into the original files to clear it for a new month.
+  echo >$MAIL_PATH_PREFIX/root
+  echo >$MAIL_PATH_PREFIX/fairbanks
+else
+  echo "[SPLIT]: Error, run as root or with sudo."
+fi

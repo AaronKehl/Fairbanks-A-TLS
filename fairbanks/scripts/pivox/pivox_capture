@@ -1,0 +1,83 @@
+#!/bin/bash
+
+# Set pathing to work from any user
+if [ ~ = "/root" ]; then
+  PATH_PREFIX=~/../home/fairbanks/fairbanks
+else
+  #accessed via sudo perms or fairbanks user
+  PATH_PREFIX=~/fairbanks
+fi
+
+# Define necessary variables
+STEALTH_LIVOX_IP=192.168.2.2
+
+RPI1_IP=192.168.2.3
+RPI2_IP=192.168.2.5
+RPI3_IP=192.168.2.7
+
+LIVOX1_IP=192.168.2.4
+LIVOX2_IP=192.168.2.6
+LIVOX3_IP=192.168.2.8
+
+LIVOX1_NAME=PIVOX1
+LIVOX2_NAME=PIVOX2
+LIVOX3_NAME=PIVOX3
+
+LIVOX1_SCAN_DURATION=20
+LIVOX2_SCAN_DURATION=20
+LIVOX3_SCAN_DURATION=20
+
+LIVOX1_SCAN_DELAY=0.1
+LIVOX2_SCAN_DELAY=0.1
+LIVOX3_SCAN_DELAY=0.1
+
+PIVOX=$PATH_PREFIX/scripts/pivox
+
+if touch "$PATH_PREFIX""/external/test"; then
+  rm $PATH_PREFIX/external/test
+  FILEPATH=$PATH_PREFIX/external
+else
+  FILEPATH=$PATH_PREFIX/internal
+  if [ ! -d "$FILEPATH" ]; then
+    mkdir "$FILEPATH"
+  fi
+fi
+
+# Initialize filePaths for lidar and picture storage, if they do not exist.
+if [ ! -d "$FILEPATH""/lidar" ]; then
+  mkdir "$FILEPATH""/lidar"
+fi
+if [ ! -d "$FILEPATH""/pics" ]; then
+  mkdir "$FILEPATH""/pics"
+fi
+
+# Extract scanner power status and turn scanner on if necessary.
+$PATH_PREFIX/scripts/gpio/pivox_poweron
+
+# Livox Mid-70 automatically spins up when powered, we must spindown each sensor in case there is any FOV overlap so returns are not mismatched.
+$PIVOX/livox_utils.py -sip $STEALTH_LIVOX_IP -dip $LIVOX1_IP -c spindown
+$PIVOX/livox_utils.py -sip $STEALTH_LIVOX_IP -dip $LIVOX2_IP -c spindown
+$PIVOX/livox_utils.py -sip $STEALTH_LIVOX_IP -dip $LIVOX3_IP -c spindown
+
+STAMP=$(echo $(date +"%Y%m%d-%H%M-%S") )
+$PIVOX/pivox_ssh_capture $RPI1_IP $LIVOX1_NAME $STAMP
+$PIVOX/pivox_ssh_transfer $RPI1_IP $LIVOX1_NAME $FILEPATH/pics
+$PIVOX/pivox_ssh_delete $RPI1_IP $LIVOX1_NAME
+$PIVOX/livox_utils.py -sip $STEALTH_LIVOX_IP -dip $LIVOX1_IP -c collect -n $LIVOX1_NAME -t $LIVOX1_SCAN_DURATION -d $LIVOX1_SCAN_DELAY -p $FILEPATH/lidar
+
+STAMP=$(echo $(date +"%Y%m%d-%H%M-%S") )
+$PIVOX/pivox_ssh_capture $RPI2_IP $LIVOX2_NAME $STAMP
+$PIVOX/pivox_ssh_transfer $RPI2_IP $LIVOX2_NAME $FILEPATH/pics
+$PIVOX/pivox_ssh_delete $RPI2_IP $LIVOX2_NAME
+$PIVOX/livox_utils.py -sip $STEALTH_LIVOX_IP -dip $LIVOX2_IP -c collect -n $LIVOX2_NAME -t $LIVOX2_SCAN_DURATION -d $LIVOX2_SCAN_DELAY -p $FILEPATH/lidar
+
+STAMP=$(echo $(date +"%Y%m%d-%H%M-%S") )
+$PIVOX/pivox_ssh_capture $RPI3_IP $LIVOX3_NAME $STAMP
+$PIVOX/pivox_ssh_transfer $RPI3_IP $LIVOX3_NAME $FILEPATH/pics
+$PIVOX/pivox_ssh_delete $RPI3_IP $LIVOX3_NAME
+$PIVOX/livox_utils.py -sip $STEALTH_LIVOX_IP -dip $LIVOX3_IP -c collect -n $LIVOX3_NAME -t $LIVOX3_SCAN_DURATION -d $LIVOX3_SCAN_DELAY -p $FILEPATH/lidar
+
+# Power Off Commands
+sleep 10s
+$PATH_PREFIX/scripts/gpio/pivox_poweroff
+

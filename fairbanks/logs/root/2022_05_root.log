@@ -1,0 +1,303 @@
+
+From MAILER-DAEMON  Sat May 14 21:06:35 2022
+Return-Path: <>
+X-Original-To: root@fairbanks-desktop
+Delivered-To: root@fairbanks-desktop
+Received: by fairbanks-desktop (Postfix)
+	id C0BF26B012B1; Sat, 14 May 2022 21:06:35 +0000 (GMT)
+Date: Sat, 14 May 2022 21:06:35 +0000 (GMT)
+From: MAILER-DAEMON@fairbanks-desktop (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: root@fairbanks-desktop
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="BAFD66B0116F.1652562395/fairbanks-desktop"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20220514210635.C0BF26B012B1@fairbanks-desktop>
+
+This is a MIME-encapsulated message.
+
+--BAFD66B0116F.1652562395/fairbanks-desktop
+Content-Description: Notification
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+This is the mail system at host fairbanks-desktop.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<fairbanks@fairbanks-desktop> (expanded from <fairbanks>): cannot update
+    mailbox /var/mail/fairbanks for user fairbanks. cannot open file:
+    Permission denied
+
+--BAFD66B0116F.1652562395/fairbanks-desktop
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; fairbanks-desktop
+X-Postfix-Queue-ID: BAFD66B0116F
+X-Postfix-Sender: rfc822; root@fairbanks-desktop
+Arrival-Date: Sat, 14 May 2022 21:06:35 +0000 (GMT)
+
+Final-Recipient: rfc822; fairbanks@fairbanks-desktop
+Original-Recipient: rfc822;fairbanks@fairbanks-desktop
+Action: failed
+Status: 5.2.0
+Diagnostic-Code: X-Postfix; cannot update mailbox /var/mail/fairbanks for user
+    fairbanks. cannot open file: Permission denied
+
+--BAFD66B0116F.1652562395/fairbanks-desktop
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+Content-Transfer-Encoding: 8bit
+
+Return-Path: <root@fairbanks-desktop>
+Received: by fairbanks-desktop (Postfix, from userid 0)
+	id BAFD66B0116F; Sat, 14 May 2022 21:06:35 +0000 (GMT)
+From: root@fairbanks-desktop (Cron Daemon)
+To: fairbanks@fairbanks-desktop
+Subject: Cron <root@fairbanks-desktop> /home/fairbanks/fairbanks/scripts/scans/frame
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <SHELL=/bin/bash>
+X-Cron-Env: <PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin>
+X-Cron-Env: <MAILTO=fairbanks>
+X-Cron-Env: <HOME=/root>
+X-Cron-Env: <LOGNAME=root>
+Message-Id: <20220514210635.BAFD66B0116F@fairbanks-desktop>
+Date: Sat, 14 May 2022 21:06:35 +0000 (GMT)
+
+[RGL_STATUS]: GPO relay is off.
+[RGL_POWERON]: Scanner is warming up, press crtl+c to exit...
+240s remaining  239s remaining  238s remaining  237s remaining  236s remaining  235s remaining  234s remaining  233s remaining  232s remaining  231s remaining  230s remaining  229s remaining  228s remaining  227s remaining  226s remaining  225s remaining  224s remaining  223s remaining  222s remaining  221s remaining  220s remaining  219s remaining  218s remaining  217s remaining  216s remaining  215s remaining  214s remaining  213s remaining  212s remaining  211s remaining  210s remaining  209s remaining  208s remaining  207s remaining  206s remaining  205s remaining  204s remaining  203s remaining  202s remaining  201s remaining  200s remaining  199s remaining  198s remaining  197s remaining  196s remaining  195s remaining  194s remaining  193s remaining  192s remaining  191s remaining  190s remaining  189s remaining  188s remaining  187s remaining  186s remaining  185s remaining  184s remaining  183s remaining  182s remaining  181s remaining  180s remaining  179s remaining  178s remaining  177s remaining  176s remaining  175s remaining  174s remaining  173s remaining  172s remaining  171s remaining  170s remaining  169s remaining  168s remaining  167s remaining  166s remaining  165s remaining  164s remaining  163s remaining  162s remaining  161s remaining  160s remaining  159s remaining  158s remaining  157s remaining  156s remaining  155s remaining  154s remaining  153s remaining  152s remaining  151s remaining  150s remaining  149s remaining  148s remaining  147s remaining  146s remaining  145s remaining  144s remaining  143s remaining  142s remaining  141s remaining  140s remaining  139s remaining  138s remaining  137s remaining  136s remaining  135s remaining  134s remaining  133s remaining  132s remaining  131s remaining  130s remaining  129s remaining  128s remaining  127s remaining  126s remaining  125s remaining  124s remaining  123s remaining  122s remaining  121s remaining  120s remaining  119s remaining  118s remaining  117s remaining  116s remaining  115s remaining  114s remaining  113s remaining  112s remaining  111s remaining  110s remaining  109s remaining  108s remaining  107s remaining  106s remaining  105s remaining  104s remaining  103s remaining  102s remaining  101s remaining  100s remaining  99s remaining  98s remaining  97s remaining  96s remaining  95s remaining  94s remaining  93s remaining  92s remaining  91s remaining  90s remaining  89s remaining  88s remaining  87s remaining  86s remaining  85s remaining  84s remaining  83s remaining  82s remaining  81s remaining  80s remaining  79s remaining  78s remaining  77s remaining  76s remaining  75s remaining  74s remaining  73s remaining  72s remaining  71s remaining  70s remaining  69s remaining  68s remaining  67s remaining  66s remaining  65s remaining  64s remaining  63s remaining  62s remaining  61s remaining  60s remaining  59s remaining  58s remaining  57s remaining  56s remaining  55s remaining  54s remaining  53s remaining  52s remaining  51s remaining  50s remaining  49s remaining  48s remaining  47s remaining  46s remaining  45s remaining  44s remaining  43s remaining  42s remaining  41s remaining  40s remaining  39s remaining  38s remaining  37s remaining  36s remaining  35s remaining  34s remaining  33s remaining  32s remaining  31s remaining  30s remaining  29s remaining  28s remaining  27s remaining  26s remaining  25s remaining  24s remaining  23s remaining  22s remaining  21s remaining  20s remaining  19s remaining  18s remaining  17s remaining  16s remaining  15s remaining  14s remaining  13s remaining  12s remaining  11s remaining  10s remaining  9s remaining  8s remaining  7s remaining  6s remaining  5s remaining  4s remaining  3s remaining  2s remaining  1s remaining  [RGL_POWERON]: Scanner On          
+[1;32m[CONNECT]      [0mConnecting to scanner at:     192.168.0.128
+[1;31m[ERROR]        MEAS_SET_PROG(3):24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;31m[ERROR]        SCN_SET_RECT_FOV(30,130,0.04,0,360,0.04):24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;31m[ERROR]        CAM_EXPOSURE_MODE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_EXPOSURE_TIME:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_IMG_SIZE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_LENS_APERTURE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_WHITE_BALANCE_MODE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;32m[STATUS]       [0mWaiting for scanner...        
+[1;33m[WARNING]      STOR_MEDIA=0:24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;32m[SCAN]         [0mStarting scan at:             May 14, 2022  09:00:09 PM
+[1;31m[ERROR]        MEAS_START():24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;32m[SCAN]         [0mScan finished at:             May 14, 2022  09:00:10 PM
+
+[1;32m[DISCONNECT]   [0mDisconnecting from scanner    
+[1;32m[CONNECT]      [0mConnecting to scanner at:     192.168.0.128
+[1;31m[ERROR]        MEAS_SET_PROG(3):24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;31m[ERROR]        SCN_SET_RECT_FOV(30,130,0.04,0,90,0.04):24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;31m[ERROR]        CAM_EXPOSURE_MODE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_EXPOSURE_TIME:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_IMG_SIZE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_LENS_APERTURE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_WHITE_BALANCE_MODE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;32m[STATUS]       [0mWaiting for scanner...        
+[1;33m[WARNING]      STOR_MEDIA=0:24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;32m[SCAN]         [0mStarting scan at:             May 14, 2022  09:00:20 PM
+[1;31m[ERROR]        MEAS_START():24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;32m[SCAN]         [0mScan finished at:             May 14, 2022  09:00:21 PM
+
+[1;32m[DISCONNECT]   [0mDisconnecting from scanner    
+[1;32m[CONNECT]      [0mConnecting to scanner at:     192.168.0.128
+[1;31m[ERROR]        MEAS_SET_PROG(3):24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;31m[ERROR]        SCN_SET_RECT_FOV(30,130,0.04,90,180,0.04):24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;31m[ERROR]        CAM_EXPOSURE_MODE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_EXPOSURE_TIME:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_IMG_SIZE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_LENS_APERTURE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_WHITE_BALANCE_MODE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;32m[STATUS]       [0mWaiting for scanner...        
+[1;33m[WARNING]      STOR_MEDIA=0:24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;32m[SCAN]         [0mStarting scan at:             May 14, 2022  09:00:31 PM
+[1;31m[ERROR]        MEAS_START():24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;32m[SCAN]         [0mScan finished at:             May 14, 2022  09:00:32 PM
+
+[1;32m[DISCONNECT]   [0mDisconnecting from scanner    
+[1;32m[CONNECT]      [0mConnecting to scanner at:     192.168.0.128
+[1;31m[ERROR]        MEAS_SET_PROG(3):24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;31m[ERROR]        SCN_SET_RECT_FOV(30,130,0.04,180,270,0.04):24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;31m[ERROR]        CAM_EXPOSURE_MODE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_EXPOSURE_TIME:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_IMG_SIZE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_LENS_APERTURE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_WHITE_BALANCE_MODE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;32m[STATUS]       [0mWaiting for scanner...        
+[1;33m[WARNING]      STOR_MEDIA=0:24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;32m[SCAN]         [0mStarting scan at:             May 14, 2022  09:00:42 PM
+[1;31m[ERROR]        MEAS_START():24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;32m[SCAN]         [0mScan finished at:             May 14, 2022  09:00:43 PM
+
+[1;32m[DISCONNECT]   [0mDisconnecting from scanner    
+[1;32m[CONNECT]      [0mConnecting to scanner at:     192.168.0.128
+[1;31m[ERROR]        MEAS_SET_PROG(3):24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;31m[ERROR]        SCN_SET_RECT_FOV(30,130,0.04,270,360,0.04):24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;31m[ERROR]        CAM_EXPOSURE_MODE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_EXPOSURE_TIME:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_IMG_SIZE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_LENS_APERTURE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;31m[ERROR]        CAM_WHITE_BALANCE_MODE:3:UNKNOWN_PROPERTY_COMMAND
+[0m[1;32m[STATUS]       [0mWaiting for scanner...        
+[1;33m[WARNING]      STOR_MEDIA=0:24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;32m[SCAN]         [0mStarting scan at:             May 14, 2022  09:00:54 PM
+[1;31m[ERROR]        MEAS_START():24:COMMAND_NOT_AVAILABLE_WITH_PENDING_FATAL_ERROR
+[0m[1;32m[SCAN]         [0mScan finished at:             May 14, 2022  09:00:55 PM
+
+[1;32m[DISCONNECT]   [0mDisconnecting from scanner    
+[RGL_STATUS]: GPO relay is on.
+SHUTDOWN: Attempting to shut down the scanner...
+spawn telnet 192.168.0.128
+Trying 192.168.0.128...
+Connected to 192.168.0.128.
+Escape character is '^]'.
+
+RIEGL Laser Measurement Systems
+RIEGLLMS;VZ-1000;S9998518;
+<C,P!,W3,E20>Err()
+\ u0;t20:40:46;c368;n2647;s1;mWARNG:ACQ_FPGA_I2C_CHECKSUM_RESET_FAILED;
+\ u0;t20:40:47;c1;n2004;s8;mFATAL:COMMAND(S)_FAILED_IN_FACTORY_STARTUP_FILE;
+\ u0;t20:40:47;c1;n1000;s2;mERROR:COMMAND(S)_FAILED_IN_USER_STARTUP_FILE;
+\ u0;t20:40:47;c1;n2506;s8;mFATAL:ACQ_BOARD_INIT_FAILED;
+\ u0;t20:40:47;c1;n2503;s8;mFATAL:HV_CTRL_DAC_ENABLE_FAILED;
+\ u0;t20:40:47;c1;n2502;s8;mFATAL:FPGA_COMM_INIT_FAILED;
+\ u0;t20:40:51;c1;n2532;s8;mFATAL:SIO_ADJUST_ERROR;
+\ u0;t20:40:54;c1;n2521:3004;s8;mFATAL:INITIAL_RECEIVER_CONFIG_FAILED;
+\ u0;t20:40:54;c1;n2544;s2;mERROR:MEASUREMENT_INIT_FAILED;
+\ u0;t20:40:54;c1;n1528:3002;s2;mERROR:INITIAL_MEAS_PROG_CONFIG_FAILED;
+\ u0;t20:40:54;c1;n2523;s8;mFATAL:LASER_INIT_FAILED;
+\ u0;t20:40:54;c1;n2524:3002;s2;mERROR:MEASUREMENT_MODE_INIT_FAILED;
+\ u0;t20:40:54;c1;n2545:2338;s2;mERROR:REFLECTIVITY_TABLE_INIT_FAILED;
+\ u0;t20:40:54;c1;n2525:2341;s2;mERROR:RACALC_INIT_FAILED;
+\ u0;t20:40:55;c1;n2526:2310;s2;mERROR:PDAE_INIT_FAILED;
+\ u0;t20:40:55;c1;n2527:2317;s2;mERROR:MEAS_TRIGGER_MODULE_INIT_FAILED;
+\ u0;t20:41:06;c1;n2543:3002;s2;mERROR:ACQUISITION_UNIT_CONFIG_FAILED;
+\ u0;t20:41:06;c1;n2040;s2;mERROR:MONITOR_STREAM_FILTER_CONFIG_FAILED;
+\ u0;t20:41:12;c1;n512:2006;s1;mWARNG:APPLY_STARTUP_PATTERN_FAILED;
+\ u0;t20:41:12;c1;n2529;s2;mERROR:APPLY_DEFAULT_PATTERN_FAILED;
+\ u0;t20:41:12;c1;n2552;s2;mERROR:EXTERNAL_TRIGGER_PULSE_INIT_FAILED;
+\ u0;t20:41:14;c1;n2029;s2;mERROR:GPS_INIT_FAILED;
+\ u0;t20:41:33;c1;n2564;s1;mWARNG:UBOOT_ACQ_XSVF_PLAYER_FAILED;
+*ERR()
+<C,P!,W3,E20>shutdown()
+*SHUTDOWN()
+<C,P!,W3,E20>Connection closed by foreign host.
+SHUTDOWN: Scanner shutting down...
+SHUTDOWN: Scanner shut down.
+[RGL_POWEROFF]: Scanner Off.
+[PVX_STATUS]: GPO relay is off.
+[PVX_POWERON]: Pivox is warming up, press crtl+c to exit...
+60s remaining  59s remaining  58s remaining  57s remaining  56s remaining  55s remaining  54s remaining  53s remaining  52s remaining  51s remaining  50s remaining  49s remaining  48s remaining  47s remaining  46s remaining  45s remaining  44s remaining  43s remaining  42s remaining  41s remaining  40s remaining  39s remaining  38s remaining  37s remaining  36s remaining  35s remaining  34s remaining  33s remaining  32s remaining  31s remaining  30s remaining  29s remaining  28s remaining  27s remaining  26s remaining  25s remaining  24s remaining  23s remaining  22s remaining  21s remaining  20s remaining  19s remaining  18s remaining  17s remaining  16s remaining  15s remaining  14s remaining  13s remaining  12s remaining  11s remaining  10s remaining  9s remaining  8s remaining  7s remaining  6s remaining  5s remaining  4s remaining  3s remaining  2s remaining  1s remaining  [PVX_POWERON]: Pivox On          
+Traceback (most recent call last):
+  File "/root/../home/fairbanks/fairbanks/scripts/pivox/livox_utils.py", line 4, in <module>
+    import openpylivox as opl
+  File "/home/fairbanks/fairbanks/scripts/pivox/openpylivox/__init__.py", line 2, in <module>
+    from openpylivox.openpylivox import *
+  File "/home/fairbanks/fairbanks/scripts/pivox/openpylivox/openpylivox.py", line 37, in <module>
+    import crcmod
+ModuleNotFoundError: No module named 'crcmod'
+Traceback (most recent call last):
+  File "/root/../home/fairbanks/fairbanks/scripts/pivox/livox_utils.py", line 4, in <module>
+    import openpylivox as opl
+  File "/home/fairbanks/fairbanks/scripts/pivox/openpylivox/__init__.py", line 2, in <module>
+    from openpylivox.openpylivox import *
+  File "/home/fairbanks/fairbanks/scripts/pivox/openpylivox/openpylivox.py", line 37, in <module>
+    import crcmod
+ModuleNotFoundError: No module named 'crcmod'
+Traceback (most recent call last):
+  File "/root/../home/fairbanks/fairbanks/scripts/pivox/livox_utils.py", line 4, in <module>
+    import openpylivox as opl
+  File "/home/fairbanks/fairbanks/scripts/pivox/openpylivox/__init__.py", line 2, in <module>
+    from openpylivox.openpylivox import *
+  File "/home/fairbanks/fairbanks/scripts/pivox/openpylivox/openpylivox.py", line 37, in <module>
+    import crcmod
+ModuleNotFoundError: No module named 'crcmod'
+[PIVOX1]: Opening SSH session with pi@192.168.2.3
+spawn ssh pi@192.168.2.3
+pi@192.168.2.3's password: 
+[PIVOX1]: Capturing an image...
+[PIVOX1]: Image captured!
+[PIVOX1]: Opening SSH session with pi@192.168.2.3
+spawn scp -r pi@192.168.2.3:~/pics/* /root/../home/fairbanks/fairbanks/external/pics
+pi@192.168.2.3's password: 
+[PIVOX1]: Transferring image(s) from PIVOX1 to the host machine...
+[PIVOX1]: Images successfully transferred from PIVOX1 to host!
+[PIVOX1]: Opening SSH session with pi@192.168.2.3
+spawn ssh pi@192.168.2.3
+pi@192.168.2.3's password: 
+[PIVOX1]: Removing images from RPi...
+[PIVOX1]: Images successfully removed!
+Traceback (most recent call last):
+  File "/root/../home/fairbanks/fairbanks/scripts/pivox/livox_utils.py", line 4, in <module>
+    import openpylivox as opl
+  File "/home/fairbanks/fairbanks/scripts/pivox/openpylivox/__init__.py", line 2, in <module>
+    from openpylivox.openpylivox import *
+  File "/home/fairbanks/fairbanks/scripts/pivox/openpylivox/openpylivox.py", line 37, in <module>
+    import crcmod
+ModuleNotFoundError: No module named 'crcmod'
+[PIVOX2]: Opening SSH session with pi@192.168.2.5
+spawn ssh pi@192.168.2.5
+pi@192.168.2.5's password: 
+[PIVOX2]: Capturing an image...
+[PIVOX2]: Image captured!
+[PIVOX2]: Opening SSH session with pi@192.168.2.5
+spawn scp -r pi@192.168.2.5:~/pics/* /root/../home/fairbanks/fairbanks/external/pics
+pi@192.168.2.5's password: 
+[PIVOX2]: Transferring image(s) from PIVOX2 to the host machine...
+[PIVOX2]: Images successfully transferred from PIVOX2 to host!
+[PIVOX2]: Opening SSH session with pi@192.168.2.5
+spawn ssh pi@192.168.2.5
+pi@192.168.2.5's password: 
+[PIVOX2]: Removing images from RPi...
+[PIVOX2]: Images successfully removed!
+Traceback (most recent call last):
+  File "/root/../home/fairbanks/fairbanks/scripts/pivox/livox_utils.py", line 4, in <module>
+    import openpylivox as opl
+  File "/home/fairbanks/fairbanks/scripts/pivox/openpylivox/__init__.py", line 2, in <module>
+    from openpylivox.openpylivox import *
+  File "/home/fairbanks/fairbanks/scripts/pivox/openpylivox/openpylivox.py", line 37, in <module>
+    import crcmod
+ModuleNotFoundError: No module named 'crcmod'
+[PIVOX3]: Opening SSH session with pi@192.168.2.7
+spawn ssh pi@192.168.2.7
+pi@192.168.2.7's password: 
+[PIVOX3]: Capturing an image...
+[PIVOX3]: Image captured!
+[PIVOX3]: Opening SSH session with pi@192.168.2.7
+spawn scp -r pi@192.168.2.7:~/pics/* /root/../home/fairbanks/fairbanks/external/pics
+pi@192.168.2.7's password: 
+[PIVOX3]: Transferring image(s) from PIVOX3 to the host machine...
+[PIVOX3]: Images successfully transferred from PIVOX3 to host!
+[PIVOX3]: Opening SSH session with pi@192.168.2.7
+spawn ssh pi@192.168.2.7
+pi@192.168.2.7's password: 
+[PIVOX3]: Removing images from RPi...
+[PIVOX3]: Images successfully removed!
+Traceback (most recent call last):
+  File "/root/../home/fairbanks/fairbanks/scripts/pivox/livox_utils.py", line 4, in <module>
+    import openpylivox as opl
+  File "/home/fairbanks/fairbanks/scripts/pivox/openpylivox/__init__.py", line 2, in <module>
+    from openpylivox.openpylivox import *
+  File "/home/fairbanks/fairbanks/scripts/pivox/openpylivox/openpylivox.py", line 37, in <module>
+    import crcmod
+ModuleNotFoundError: No module named 'crcmod'
+[PVX_STATUS]: GPO relay is on.
+[PVX_POWEROFF]: Pivoxes off.
+
+--BAFD66B0116F.1652562395/fairbanks-desktop--
+

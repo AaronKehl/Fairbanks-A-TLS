@@ -1,0 +1,41 @@
+#!/usr/bin/expect
+set ip [lindex $argv 0];
+set name [lindex $argv 1];
+
+send_user "\[$name\]: Opening SSH session with pi@$ip\n"
+
+set timeout 3
+
+# Alter, hopefully, to passed in args
+spawn ssh pi@$ip
+
+expect {
+	"*Are you sure you want to continue connecting (yes/no*" {
+		send "yes\r"
+	} timeout {
+		# do nothing, this display has been previously accptped
+	}
+}
+
+expect {
+	"pi@$ip's password: " {
+		# enter password (this is so bad)
+		send "$PWD\r"
+		send_user "\n"
+		sleep 3
+
+		# Once connected, delete images stored on raspberry pi harddrive
+		send_user "\[$name\]: Removing images from RPi...\n"
+		send "cd ~/pics\r"
+		send "rm *\r"
+		sleep 10
+		send_user "\[$name\]: Images successfully removed!\n"
+		send "exit\r"
+		exit
+
+	} timeout {
+		send_user "\[$name\]: Unable to connect!\n"
+		exit
+	}
+}
+wait

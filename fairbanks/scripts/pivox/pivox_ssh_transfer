@@ -1,0 +1,34 @@
+#!/usr/bin/expect
+set ip [lindex $argv 0];
+set name [lindex $argv 1];
+set filePath [lindex $argv 2];
+
+send_user "\[$name\]: Opening SSH session with pi@$ip\n"
+
+set timeout 3
+
+spawn scp -r pi@$ip:~/pics/* $filePath
+
+expect {
+	"*Are you sure you want to continue connecting (yes/no*" {
+		send "yes\r"
+	} timeout {
+		# do nothing, this display has been previously accetped
+	}
+}
+
+expect {
+	"pi@$ip's password: " {
+		send "$PWD\r"
+		send_user "\n"
+		send_user "\[$name\]: Transferring image(s) from $name to the host machine...\n"
+		sleep 15
+		send_user "\[$name\]: Images successfully transferred from $name to host!\n"
+		send "exit\r"
+		exit
+	} timeout {
+		send_user "\[$name\]: Unable to connect!\n"
+		exit
+	}
+}
+wait

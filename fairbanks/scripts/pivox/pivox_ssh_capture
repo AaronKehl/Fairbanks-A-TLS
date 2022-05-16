@@ -1,0 +1,43 @@
+#!/usr/bin/expect
+set ip [lindex $argv 0];
+set name [lindex $argv 1];
+set stamp [lindex $argv 2];
+
+send_user "\[$name\]: Opening SSH session with pi@$ip\n"
+
+set timeout 3
+
+# Alter, hopefully, to passed in args
+spawn ssh pi@$ip
+
+expect {
+	"*Are you sure you want to continue connecting (yes/no*" {
+		send "yes\r"
+	} timeout {
+		# do nothing, this display has been previously accepted
+	}
+}
+
+expect {
+	"pi@$ip's password: " {
+		# enter password (this is so bad)
+		send "$PWD\r"
+		sleep 2
+
+		# Once connected collect an image
+		send_user "\n\[$name\]: Capturing an image...\n"
+		send "libcamera-jpeg -o ~/pics/$stamp.$name.jpeg\r"
+
+		sleep 20
+
+		# Check that it was successful
+		send_user "\[$name\]: Image captured!\n"
+		send "exit\r"
+		exit
+
+	} timeout {
+		send_user "\[$name\]: Unable to connect!\n"
+		exit
+	}
+}
+wait

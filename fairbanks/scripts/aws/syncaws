@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Set pathing to work from any user
+if [ ~ = "/root" ]; then
+  PATH_PREFIX=~/../home/fairbanks/fairbanks
+else
+ # accessed via sudo perms or fairbanks user
+ PATH_PREFIX=~/fairbanks
+fi
+
+# Set the home path for the scan files and make sure it is accessible to children.
+cd
+export HOME=/home/fairbanks
+
+CONVERTED=s3://grid-dev-lidarscans/Fairbanks-A-TLS/lasz
+PICTURES=s3://grid-dev-lidarscans/Fairbanks-A-TLS/pics
+
+# Perform for external files
+FILE_DIR=$PATH_PREFIX/external/lidar
+# Move .las .laz files from the linux box to the AWS S3 bucket.
+/usr/local/bin/./aws s3 mv $FILE_DIR $CONVERTED --recursive --exclude "*" --include "*.laz.gz"
+/usr/local/bin/./aws s3 cp $FILE_DIR $CONVERTED --recursive --exclude "*" --include "*.las.gz"
+
+FILE_DIR=$PATH_PREFIX/external/pics
+# Move .jpeg files from linux box to the AWS S3 bucket.
+/usr/local/bin/./aws s3 cp $FILE_DIR $PICTURES --recursive --exclude "*" --include "*.jpeg"
+
+# Repeat for internal files
+FILE_DIR=$PATH_PREFIX/internal/lidar
+# Move .laz files from the linux box to the AWS S3 bucket.
+/usr/local/bin/./aws s3 mv $FILE_DIR $CONVERTED --recursive --exclude "*" --include "*.laz.gz"
+/usr/local/bin/./aws s3 cp $FILE_DIR $CONVERTED --recursive --exclude "*" --include "*.las.gz"
+
+FILE_DIR=$PATH_PREFIX/internal/pics
+# Move .jpeg files from linux box to the AWS S3 bucket.
+/usr/local/bin/./aws s3 cp $FILE_DIR $PICTURES --recursive --exclude "*" --include "*.jpeg"
+
+# Add code to synchronize log files?

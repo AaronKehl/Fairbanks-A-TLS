@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# Set pathing to work from any user
+if [ ~ = "/root" ]; then
+  PATH_PREFIX=~/../home/fairbanks/fairbanks
+else
+ # accessed via sudo perms or fairbanks user
+ PATH_PREFIX=~/fairbanks
+fi
+
+# establish directories we will be using based on user account
+if touch "$PATH_PREFIX""/external/test"; then
+  rm $PATH_PREFIX/external/test
+  if [ ! -d "$PATH_PREFIX""/external/lidar" ]; then
+    mkdir "$PATH_PREFIX""/external/lidar"
+  fi 
+  SCAN_DIR=$PATH_PREFIX/external/lidar
+else
+  if [ ! -d "$PATH_PREFIX""/internal" ]; then
+    mkdir "$PATH_PREFIX""/internal"
+  fi
+  if [ ! -d "$PATH_PREFIX""/internal/lidar" ]; then
+    mkdir "$PATH_PREFIX""/internal/lidar"
+  fi
+  SCAN_DIR=$PATH_PREFIX/internal/lidar
+fi
+
+lidarcollect=$PATH_PREFIX/lidar-collect/build/LidarCollect
+
+# Extract scanner power status and turn scanner on if necessary.
+$PATH_PREFIX/scripts/gpio/scanner_poweron
+
+# Change to the directory where file scans are to be stored to
+cd $SCAN_DIR
+
+# Conduct a basic frame scan
+$lidarcollect --ip 192.168.0.128 --frame 3 30 130 0.04 0 360 0.04 MAIN
+
+# Small delay to let LidarCollect close out the rxp file.
+sleep 10s
+
+# Conduct the GNSS Tower frame scans
+$PATH_PREFIX/scripts/scans/frame_gnss
+
+# Turn off the Riegl scanner
+$PATH_PREFIX/scripts/gpio/scanner_poweroff
+
+# Collect the pivox scans/pictures
+$PATH_PREFIX/scripts/pivox/pivox_capture
