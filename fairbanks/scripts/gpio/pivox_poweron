@@ -26,7 +26,7 @@ elif [ $PWR_VAL = "0" ]; then
   echo "[PVX_POWERON]: Pivox is warming up, press crtl+c to exit..."
 
   # wait for the pivoxes to boot up and respond to commands
-  for i in {60..1}
+  for i in {180..1}
   do
     echo -ne "\r$i""s remaining  "
     sleep 1

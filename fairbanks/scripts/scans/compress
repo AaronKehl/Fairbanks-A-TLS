@@ -10,7 +10,7 @@ fi
 
 # establish directories we will be using based on user account
 CONDA=$PATH_PREFIX/miniconda3/etc/profile.d/conda.sh
-
+INPUT_FILE=$PATH_PREFIX/scripts/pdal/base-laz.json
 SCAN_DIR=$PATH_PREFIX/external/lidar
 cd $SCAN_DIR
 
@@ -18,98 +18,26 @@ cd $SCAN_DIR
 source $CONDA
 conda activate pdal
 
-# <<<< BEGIN Main tower file processing <<<<
-INPUT_FILE=$PATH_PREFIX/scripts/pdal/base-laz.json
+# <<<< BEGIN External drive file processing <<<<
 # Clone/convert all .rxp files into .laz using PDAL and its input config json file
-find $SCAN_DIR -name "*MAIN.frame.rxp" | parallel pdal pipeline $INPUT_FILE --readers.rxp.filename={} --writers.las.filename={.}.laz
-# Compress all original .rxp files
-find $SCAN_DIR -name "*MAIN.frame.rxp" | parallel gzip {}
-# >>>>> END Main tower file processing >>>>>
-
-# <<<< BEGIN GNSS tower 1 file processing <<<<
-INPUT_FILE=$PATH_PREFIX/scripts/pdal/gnss-1-laz.json
-# Clone/convert all .rxp files into .laz using PDAL and its input config json file
-find $SCAN_DIR -name "*GNSS1.frame.rxp" | parallel pdal pipeline $INPUT_FILE --readers.rxp.filename={} --writers.las.filename={.}.laz
-# Compress all original .rxp files
-find $SCAN_DIR -name "*GNSS1.frame.rxp" | parallel gzip {}
-# >>>>> END GNSS tower 1 file processing >>>>>
-
-# <<<< BEGIN GNSS tower 2 file processing <<<<
-INPUT_FILE=$PATH_PREFIX/scripts/pdal/gnss-2-laz.json
-# Clone/convert all .rxp files into .laz using PDAL and its input config json file
-find $SCAN_DIR -name "*GNSS2.frame.rxp" | parallel pdal pipeline $INPUT_FILE --readers.rxp.filename={} --writers.las.filename={.}.laz
-# Compress all original .rxp files
-find $SCAN_DIR -name "*GNSS2.frame.rxp" | parallel gzip {}
-# >>>>> END GNSS tower 2 file processing >>>>>
-
-# <<<< BEGIN GNSS tower 3 file processing <<<<
-INPUT_FILE=$PATH_PREFIX/scripts/pdal/gnss-3-laz.json
-# Clone/convert all .rxp files into .laz using PDAL and its input config json file
-find $SCAN_DIR -name "*GNSS3.frame.rxp" | parallel pdal pipeline $INPUT_FILE --readers.rxp.filename={} --writers.las.filename={.}.laz
-# Compress all original .rxp files
-find $SCAN_DIR -name "*GNSS3.frame.rxp" | parallel gzip {}
-# >>>>> END GNSS tower 3 file processing >>>>>
-
-# <<<< BEGIN GNSS tower 4 file processing <<<<
-INPUT_FILE=$PATH_PREFIX/scripts/pdal/gnss-4-laz.json
-# Clone/convert all .rxp files into .laz using PDAL and its input config json file
-find $SCAN_DIR -name "*GNSS4.frame.rxp" | parallel pdal pipeline $INPUT_FILE --readers.rxp.filename={} --writers.las.filename={.}.laz
-# Compress all original .rxp files
-find $SCAN_DIR -name "*GNSS4.frame.rxp" | parallel gzip {}
-# >>>>> END GNSS tower 4 file processing >>>>>
-
-# <<<< BEGIN PIVOX LAS ZIP <<<<
+find $SCAN_DIR -name "*.rxp" | parallel pdal pipeline $INPUT_FILE --readers.rxp.filename={} --writers.las.filename={.}.laz
+# Compress all original .rxp, .las, and .laz files
+find $SCAN_DIR -name "*.rxp" | parallel gzip {}
 find $SCAN_DIR -name "*.las" | parallel gzip {}
 find $SCAN_DIR -name "*.laz" | parallel gzip {}
-# >>>> END PIVOX LAS ZIP >>>>
+# >>>>> END External drive file processing >>>>>
 
-# Repeat process for internal storage 
+# Repeat process for internal storage
 conda deactivate
 SCAN_DIR=$PATH_PREFIX/internal/lidar
 cd $SCAN_DIR
-conda activate pdal 
+conda activate pdal
 
-# <<<< BEGIN Main tower file processing <<<<
-INPUT_FILE=$PATH_PREFIX/scripts/pdal/base-laz.json
+# <<<< BEGIN Internal drive file processing <<<<
 # Clone/convert all .rxp files into .laz using PDAL and its input config json file
-find $SCAN_DIR -name "*MAIN.frame.rxp" | parallel pdal pipeline $INPUT_FILE --readers.rxp.filename={} --writers.las.filename={.}.laz
-# Compress all original .rxp files
-find $SCAN_DIR -name "*MAIN.frame.rxp" | parallel gzip {}
-# >>>>> END Main tower file processing >>>>>
-
-# <<<< BEGIN GNSS tower 1 file processing <<<<
-INPUT_FILE=$PATH_PREFIX/scripts/pdal/gnss-1-laz.json
-# Clone/convert all .rxp files into .laz using PDAL and its input config json file
-find $SCAN_DIR -name "*GNSS1.frame.rxp" | parallel pdal pipeline $INPUT_FILE --readers.rxp.filename={} --writers.las.filename={.}.laz
-# Compress all original .rxp files
-find $SCAN_DIR -name "*GNSS1.frame.rxp" | parallel gzip {}
-# >>>>> END GNSS tower 1 file processing >>>>>
-
-# <<<< BEGIN GNSS tower 2 file processing <<<<
-INPUT_FILE=$PATH_PREFIX/scripts/pdal/gnss-2-laz.json
-# Clone/convert all .rxp files into .laz using PDAL and its input config json file
-find $SCAN_DIR -name "*GNSS2.frame.rxp" | parallel pdal pipeline $INPUT_FILE --readers.rxp.filename={} --writers.las.filename={.}.laz
-# Compress all original .rxp files
-find $SCAN_DIR -name "*GNSS2.frame.rxp" | parallel gzip {}
-# >>>>> END GNSS tower 2 file processing >>>>>
-
-# <<<< BEGIN GNSS tower 3 file processing <<<<
-INPUT_FILE=$PATH_PREFIX/scripts/pdal/gnss-3-laz.json
-# Clone/convert all .rxp files into .laz using PDAL and its input config json file
-find $SCAN_DIR -name "*GNSS3.frame.rxp" | parallel pdal pipeline $INPUT_FILE --readers.rxp.filename={} --writers.las.filename={.}.laz
-# Compress all original .rxp files
-find $SCAN_DIR -name "*GNSS3.frame.rxp" | parallel gzip {}
-# >>>>> END GNSS tower 3 file processing >>>>>
-
-# <<<< BEGIN GNSS tower 4 file processing <<<<
-INPUT_FILE=$PATH_PREFIX/scripts/pdal/gnss-4-laz.json
-# Clone/convert all .rxp files into .laz using PDAL and its input config json file
-find $SCAN_DIR -name "*GNSS4.frame.rxp" | parallel pdal pipeline $INPUT_FILE --readers.rxp.filename={} --writers.las.filename={.}.laz
-# Compress all original .rxp files
-find $SCAN_DIR -name "*GNSS4.frame.rxp" | parallel gzip {}
-# >>>>> END GNSS tower 4 file processing >>>>>
-
-# <<<< BEGIN PIVOX LAS ZIP <<<<
+find $SCAN_DIR -name "*.rxp" | parallel pdal pipeline $INPUT_FILE --readers.rxp.filename={} --writers.las.filename={.}.laz
+# Compress all original .rxp, .las, and .laz files
+find $SCAN_DIR -name "*.rxp" | parallel gzip {}
 find $SCAN_DIR -name "*.las" | parallel gzip {}
 find $SCAN_DIR -name "*.laz" | parallel gzip {}
-# >>>> END PIVOX LAS ZIP >>>>
+# >>>>> END Internal drive file processing >>>>>
